@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xunyun.ier.dao.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.xunyun.ier.model.po.User">
+        <id column="USER_ID" property="userId" jdbcType="BIGINT"/>
+        <result column="USERNAME" property="username" jdbcType="VARCHAR"/>
+        <result column="PASSWORD" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    USER_ID, USERNAME, PASSWORD
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from user_
+        where USER_ID = #{userId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.xunyun.ier.model.po.User">
+    insert into user_ (USER_ID, USERNAME, PASSWORD
+      )
+    values (#{userId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.xunyun.ier.model.po.User">
+        insert into user_
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="username != null">
+                USERNAME,
+            </if>
+            <if test="password != null">
+                PASSWORD,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xunyun.ier.model.po.User">
+        update user_
+        <set>
+            <if test="username != null">
+                USERNAME = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                PASSWORD = #{password,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where USER_ID = #{userId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xunyun.ier.model.po.User">
+    update user_
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR}
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </update>
+
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from user_
+    </select>
+
+</mapper>

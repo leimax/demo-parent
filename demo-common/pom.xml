@@ -8,6 +8,35 @@
 	</parent>
 	<artifactId>demo-common</artifactId>
 	<dependencies>
+
+		<!-- logger dependency support start -->
+		<!-- log4j impl -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<!-- slf4j api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- slf4j to log4j2 bridge -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<!-- jdk-logging to slf4j bridge -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+		</dependency>
+		<!-- slf4j to commons-logging bridge -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<!-- logger dependency support end -->
+
 		<!-- apache commons util start -->
 		<!-- commons lang3 -->
 		<dependency>
