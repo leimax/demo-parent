@@ -5,13 +5,13 @@ xmlns:util="http://www.springframework.org/schema/util"
 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
-	<context:component-scan base-package="com.deppon.accelerator" use-default-filters="true">
+	<context:component-scan base-package="com.accelerator.demo" use-default-filters="true">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
 	<bean id="remoteService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
 		<property name="serviceUrl" value="http://10.224.228.148:8080/remote-server/remoteService" />
-		<property name="serviceInterface" value="com.deppon.accelerator.remote.service.RemoteService" />
+		<property name="serviceInterface" value="com.accelerator.demo.remote.service.RemoteService" />
 	</bean>
 	
 </beans>

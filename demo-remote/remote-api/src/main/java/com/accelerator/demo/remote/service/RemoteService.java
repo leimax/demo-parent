@@ -1,4 +1,4 @@
-package com.deppon.accelerator.remote.service;
+package com.accelerator.demo.remote.service;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.deppon.accelerator.zookeeper.watcher;
+package com.accelerator.demo.zookeeper.watcher;
 
 import java.io.IOException;
 

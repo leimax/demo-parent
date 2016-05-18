@@ -1,4 +1,4 @@
-package com.deppon.accelerator.remote.service.test;
+package com.accelerator.demo.remote.service.test;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.deppon.accelerator.remote.service.RemoteService;
+import com.accelerator.demo.remote.service.RemoteService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })

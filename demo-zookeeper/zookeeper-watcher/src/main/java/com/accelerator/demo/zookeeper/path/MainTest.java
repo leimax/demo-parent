@@ -1,4 +1,4 @@
-package com.deppon.accelerator.zookeeper.path;
+package com.accelerator.demo.zookeeper.path;
 
 import java.io.IOException;
 

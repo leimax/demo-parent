@@ -13,7 +13,7 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 	</mvc:annotation-driven>
 	
 	<bean id="/remoteService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
-		<property name="serviceInterface" value="com.deppon.accelerator.remote.service.RemoteService" />
+		<property name="serviceInterface" value="com.accelerator.demo.remote.service.RemoteService" />
 		<property name="service" ref="remoteService" />
 	</bean>
 	
