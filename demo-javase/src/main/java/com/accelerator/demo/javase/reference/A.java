@@ -3,17 +3,14 @@ package com.accelerator.demo.javase.reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created by 318898 on 2016/5/21.
- */
-public class A {
+class A {
 
-    static Logger logger = LoggerFactory.getLogger(A.class);
+    private static Logger logger = LoggerFactory.getLogger(A.class);
 
-    int[] a;
+    private int[] a;
 
-    public A() {
-        a = new int[300000000];
+    A() {
+        a = new int[100000000];
     }
 
     @Override

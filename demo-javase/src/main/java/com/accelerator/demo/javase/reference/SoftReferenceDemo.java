@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SoftReferenceDemo {
 
-    static Logger logger = LoggerFactory.getLogger(SoftReferenceDemo.class);
+    private static Logger logger = LoggerFactory.getLogger(SoftReferenceDemo.class);
 
     public static void main(String[] args) throws InterruptedException {
         int count = 1;
@@ -20,11 +20,11 @@ public class SoftReferenceDemo {
         SoftReference<A> sr = new SoftReference<>(a);
         logger.info("创建对象A后空闲内存：{}", runtime.freeMemory());
         a = null;
-        List<int[]> aList = Lists.newArrayList();
+        List<A> aList = Lists.newArrayList();
         while (sr.get() != null) {
-            aList.add(new int[100000]);
+            count++;
+            aList.add(new A());
             logger.info(String.format("第%d次回收对象A后空闲内存：%d", count, runtime.freeMemory()));
-            runtime.gc();
         }
         logger.info("用来占用内存List的大小：{}", aList.size());
         logger.info("成功回收对象A后空闲内存：{}", runtime.freeMemory());
