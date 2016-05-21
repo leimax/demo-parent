@@ -1,299 +1,345 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.accelerator.demo</groupId>
-	<artifactId>demo-parent</artifactId>
-	<version>1.0</version>
-	<packaging>pom</packaging>
-	<properties>
-		<!-- Dependency Versions -->
-		<slf4j.version>1.7.21</slf4j.version>
-		<log4j.version>1.2.17</log4j.version>
-		<commons.lang.version>3.4</commons.lang.version>
-		<commons.collections.version>4.1</commons.collections.version>
-		<commons.io.version>2.4</commons.io.version>
-		<commons.fileupload.version>1.3.1</commons.fileupload.version>
-		<guava.version>19.0</guava.version>
-		<spring.version>4.2.6.RELEASE</spring.version>
-		<jackson.version>2.7.4</jackson.version>
-		<httpclient.version>4.5.2</httpclient.version>
-		<zookeeper.version>3.4.8</zookeeper.version>
-		<mysql.version>6.0.2</mysql.version>
-		<commons.dbcp.version>2.1.1</commons.dbcp.version>
-		<mybatis.version>3.3.1</mybatis.version>
-		<mybatis.spring.version>1.2.4</mybatis.spring.version>
-		<aspectj.version>1.8.9</aspectj.version>
-		<servlet.api.version>3.0.1</servlet.api.version>
-		<jstl.version>1.2</jstl.version>
-		<junit.version>4.12</junit.version>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.accelerator.demo</groupId>
+    <artifactId>demo-parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <properties>
+        <!-- Dependency Versions -->
+        <slf4j.version>1.7.21</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <commons.lang.version>3.4</commons.lang.version>
+        <commons.collections.version>4.1</commons.collections.version>
+        <commons.io.version>2.4</commons.io.version>
+        <commons.codec.version>1.10</commons.codec.version>
+        <commons.fileupload.version>1.3.1</commons.fileupload.version>
+        <guava.version>19.0</guava.version>
+        <spring.version>4.2.6.RELEASE</spring.version>
+        <jackson.version>2.7.4</jackson.version>
+        <httpclient.version>4.5.2</httpclient.version>
+        <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <mysql.version>6.0.2</mysql.version>
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+        <commons.dbcp2.version>2.1.1</commons.dbcp2.version>
+        <mybatis.version>3.3.1</mybatis.version>
+        <mybatis.spring.version>1.2.4</mybatis.spring.version>
+        <aspectj.version>1.8.9</aspectj.version>
+        <servlet.api.version>3.0.1</servlet.api.version>
+        <javax.el.api.version>3.0.0</javax.el.api.version>
+        <javax.el.impl.version>2.2.6</javax.el.impl.version>
+        <jstl.version>1.2</jstl.version>
+        <junit.version>4.12</junit.version>
 
-		<!-- Plugin Versions -->
-		<compiler.version>3.3</compiler.version>
-		<surefire.version>2.19</surefire.version>
-		<mybatis.generator>1.3.2</mybatis.generator>
+        <!-- Plugin Versions -->
+        <compiler.version>3.3</compiler.version>
+        <surefire.version>2.19</surefire.version>
+        <mybatis.generator>1.3.2</mybatis.generator>
 
-		<!-- Project configuration -->
-		<maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<skipTests>true</skipTests>
-	</properties>
-	<dependencies>
-		<!-- junit test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<!-- project library -->
-			<dependency>
-				<groupId>com.accelerator.demo</groupId>
-				<artifactId>demo-common</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.accelerator.demo</groupId>
-				<artifactId>remote-api</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+        <!-- Project configuration -->
+        <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+    </properties>
+    <dependencies>
+        <!-- logger dependency support start -->
+        <!-- slf4j api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <!-- logger dependency support end -->
+        <!-- junit test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <!-- project library -->
+            <dependency>
+                <groupId>com.accelerator.demo</groupId>
+                <artifactId>demo-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.accelerator.demo</groupId>
+                <artifactId>remote-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
-			<!-- logger dependency support start -->
-			<!-- log4j impl -->
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>${log4j.version}</version>
-			</dependency>
-			<!-- slf4j api -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<!-- slf4j to log4j2 bridge -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${slf4j.version}</version>
-				<scope>runtime</scope>
-			</dependency>
-			<!-- jdk-logging to slf4j bridge -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jul-to-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-				<scope>runtime</scope>
-			</dependency>
-			<!-- slf4j to commons-logging bridge -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-				<scope>runtime</scope>
-			</dependency>
-			<!-- logger dependency support end -->
+            <!-- logger dependency support start -->
+            <!-- log4j impl -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <!-- slf4j api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- slf4j to log4j bridge -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- jdk-logging to slf4j bridge -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- slf4j to commons-logging bridge -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- logger dependency support end -->
 
-			<!-- apache commons util start -->
-			<!-- commons lang3 -->
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-lang3</artifactId>
-				<version>${commons.lang.version}</version>
-			</dependency>
-			<!-- commons collections -->
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-collections4</artifactId>
-				<version>${commons.collections.version}</version>
-			</dependency>
-			<!-- commons io -->
-			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>${commons.io.version}</version>
-			</dependency>
-			<!-- Commons Fileupload -->
-			<dependency>
-				<groupId>commons-fileupload</groupId>
-				<artifactId>commons-fileupload</artifactId>
-				<version>${commons.fileupload.version}</version>
-			</dependency>
-			<!-- apache commons util end -->
+            <!-- apache commons util start -->
+            <!-- commons lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang.version}</version>
+            </dependency>
+            <!-- commons collections -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons.collections.version}</version>
+            </dependency>
+            <!-- commons io -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <!-- commons codec -->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+            <!-- Commons Fileupload -->
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons.fileupload.version}</version>
+            </dependency>
+            <!-- apache commons util end -->
 
-			<!-- google guava -->
-			<dependency>
-				<groupId>com.google.guava</groupId>
-				<artifactId>guava</artifactId>
-				<version>${guava.version}</version>
-			</dependency>
+            <!-- google guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
 
-			<!-- json library -->
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-databind</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
+            <!-- json library -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
 
-			<!-- http support -->
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpclient</artifactId>
-				<version>${httpclient.version}</version>
-			</dependency>
+            <!-- http support -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
 
-			<!-- Aspect Oriented -->
-			<dependency>
-				<groupId>org.aspectj</groupId>
-				<artifactId>aspectjrt</artifactId>
-				<version>${aspectj.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.aspectj</groupId>
-				<artifactId>aspectjweaver</artifactId>
-				<version>${aspectj.version}</version>
-			</dependency>
+            <!-- Aspect Oriented -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
 
-			<!-- spring frameworks -->
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-context-support</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-webmvc</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-orm</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-tx</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-test</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
+            <!-- spring frameworks -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
 
-			<!-- zookeeper library -->
-			<dependency>
-				<groupId>org.apache.zookeeper</groupId>
-				<artifactId>zookeeper</artifactId>
-				<version>${zookeeper.version}</version>
-			</dependency>
+            <!-- validator framework  -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.validator.version}</version>
+            </dependency>
 
-			<!-- JDBC Support -->
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-dbcp2</artifactId>
-				<version>${commons.dbcp.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>${mysql.version}</version>
-			</dependency>
+            <!-- zookeeper library -->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
 
-			<!-- Object/Relational Mapping -->
-			<dependency>
-				<groupId>org.mybatis</groupId>
-				<artifactId>mybatis-spring</artifactId>
-				<version>${mybatis.spring.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.mybatis</groupId>
-				<artifactId>mybatis</artifactId>
-				<version>${mybatis.version}</version>
-			</dependency>
+            <!-- JDBC Support -->
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>${commons.dbcp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-dbcp2</artifactId>
+                <version>${commons.dbcp2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
 
+            <!-- Object/Relational Mapping -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
 
-			<!-- Java Specifications -->
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>jstl</artifactId>
-				<version>${jstl.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>${servlet.api.version}</version>
-				<scope>provided</scope>
-			</dependency>
+            <!-- Java Specifications -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.el</groupId>
+                <artifactId>javax.el-api</artifactId>
+                <version>${javax.el.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.web</groupId>
+                <artifactId>javax.el</artifactId>
+                <version>${javax.el.impl.version}</version>
+                <scope>provided</scope>
+            </dependency>
 
-		</dependencies>
-	</dependencyManagement>
-	<build>
-		<resources>
-			<resource>
-				<directory>${project.basedir}/src/main/resources</directory>
-				<excludes>
-					<exclude>mybatis/generator/*</exclude>
-				</excludes>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.mybatis.generator</groupId>
-					<artifactId>mybatis-generator-maven-plugin</artifactId>
-					<version>${mybatis.generator}</version>
-					<configuration>
-						<configurationFile>src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>
-						<overwrite>true</overwrite>
-						<verbose>true</verbose>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${maven.compiler.compilerVersion}</source>
-					<target>${maven.compiler.compilerVersion}</target>
-					<meminitial>512m</meminitial>
-					<maxmem>1024m</maxmem>
-					<fork>true</fork>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-				<executions>
-					<execution>
-						<id>default-testCompile</id>
-						<phase>test-compile</phase>
-						<goals>
-							<goal>testCompile</goal>
-						</goals>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<skip>${skipTests}</skip>
-					<skipTests>${skipTests}</skipTests>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<modules>
-		<module>demo-remote</module>
-		<module>demo-common</module>
-		<module>demo-zookeeper</module>
-		<module>demo-ssm</module>
-		<module>demo-guava</module>
-	</modules>
+            <!-- junit test -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <excludes>
+                    <exclude>mybatis/generator/*</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>${mybatis.generator}</version>
+                    <configuration>
+                        <configurationFile>src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>
+                        <overwrite>true</overwrite>
+                        <verbose>true</verbose>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.compilerVersion}</source>
+                    <target>${maven.compiler.compilerVersion}</target>
+                    <meminitial>512m</meminitial>
+                    <maxmem>1024m</maxmem>
+                    <fork>true</fork>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>${skipTests}</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+        <module>demo-remote</module>
+        <module>demo-common</module>
+        <module>demo-zookeeper</module>
+        <module>demo-ssm</module>
+        <module>demo-guava</module>
+    </modules>
 </project>
