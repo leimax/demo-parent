@@ -350,5 +350,6 @@
         <module>demo-zookeeper</module>
         <module>demo-ssm</module>
         <module>demo-guava</module>
+        <module>demo-javase</module>
     </modules>
 </project>
