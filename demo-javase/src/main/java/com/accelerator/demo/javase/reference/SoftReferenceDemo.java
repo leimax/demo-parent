@@ -22,9 +22,10 @@ public class SoftReferenceDemo {
         a = null;
         List<A> aList = Lists.newArrayList();
         while (sr.get() != null) {
+            logger.info(String.format("第%d次回收对象A后空闲内存：%d", count, runtime.freeMemory()));
             count++;
             aList.add(new A());
-            logger.info(String.format("第%d次回收对象A后空闲内存：%d", count, runtime.freeMemory()));
+            runtime.gc();
         }
         logger.info("用来占用内存List的大小：{}", aList.size());
         logger.info("成功回收对象A后空闲内存：{}", runtime.freeMemory());
