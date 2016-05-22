@@ -1,14 +1,14 @@
 package com.accelerator.demo.zookeeper.watcher;
 
-import java.util.Arrays;
-
+import org.apache.zookeeper.AsyncCallback.StatCallback;
 import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.KeeperException.Code;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
-import org.apache.zookeeper.AsyncCallback.StatCallback;
-import org.apache.zookeeper.KeeperException.Code;
 import org.apache.zookeeper.data.Stat;
+
+import java.util.Arrays;
 
 public class DataMonitor implements Watcher, StatCallback {
 
@@ -26,7 +26,7 @@ public class DataMonitor implements Watcher, StatCallback {
 		this.zk = zk;
 		this.znode = znode;
 		this.listener = listener;
-		// 通过检查节点是否存在获取完整的时间驱动
+		// 通过检查节点是否存在获取完整的事件驱动
 		zk.exists(znode, true, this, null);
 	}
 

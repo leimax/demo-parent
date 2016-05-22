@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 
 public class WeakReferenceDemo {
 
-    static Logger logger = LoggerFactory.getLogger(WeakReferenceDemo.class);
+    private static Logger logger = LoggerFactory.getLogger(WeakReferenceDemo.class);
 
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class WeakReferenceDemo {
         logger.info("回收对象A后空闲内存：{}", runtime.freeMemory());
         a = sr.get();
         logger.info("A对象是否存在:" + (a != null));
-        logger.info("获取对象A后空闲内存：{}", runtime.freeMemory());
+        logger.info("成功回收对象A后空闲内存：{}", runtime.freeMemory());
         logger.info("结束弱引用测试");
     }
 }
