@@ -1,18 +1,15 @@
 package com.accelerator.demo.zookeeper.path;
 
-import java.io.IOException;
-
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
+import com.accelerator.demo.zookeeper.Constants;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.ZooDefs.Ids;
-import org.apache.zookeeper.ZooKeeper;
+
+import java.io.IOException;
 
 public class MainTest implements Watcher {
 
 	public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
-		ZooKeeper zk = new ZooKeeper("192.168.60.111:2181", 3000, new MainTest());
+		ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, 3000, new MainTest());
 		System.out.println("=========创建节点===========");
 		if (zk.exists("/app", false) == null) {
 			zk.create("/app", "app".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);

@@ -12,7 +12,7 @@
     <dependencies>
         <!-- project library -->
         <dependency>
-            <groupId>com.accelerator.demo</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>demo-common</artifactId>
         </dependency>
     </dependencies>

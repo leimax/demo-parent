@@ -6,17 +6,18 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>demo-zookeeper</artifactId>
+    <artifactId>demo-spring-remote</artifactId>
+    <packaging>pom</packaging>
     <dependencies>
         <!-- project library -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>demo-common</artifactId>
         </dependency>
-        <!-- zookeeper library -->
-        <dependency>
-            <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-        </dependency>
     </dependencies>
+    <modules>
+        <module>spring-remote-api</module>
+        <module>spring-remote-client</module>
+        <module>spring-remote-server</module>
+    </modules>
 </project>
