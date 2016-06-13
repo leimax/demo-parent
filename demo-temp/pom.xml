@@ -8,8 +8,8 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>demo-webjars</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>demo-temp</artifactId>
+    <packaging>war</packaging>
     <dependencies>
         <!-- project library -->
         <dependency>
@@ -34,7 +34,21 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+
+        <!-- JDBC Support -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <!-- Java Specifications -->
@@ -46,13 +60,5 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-        </dependency>
     </dependencies>
-    <modules>
-        <module>webjars-support</module>
-        <module>webjars-webapp</module>
-    </modules>
 </project>

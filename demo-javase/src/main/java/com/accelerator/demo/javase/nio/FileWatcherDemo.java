@@ -6,7 +6,8 @@ import java.nio.file.*;
 public class FileWatcherDemo {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        WatchService watchService = FileSystems.getDefault().newWatchService();
+        FileSystem fileSystem = FileSystems.getDefault();
+        WatchService watchService = fileSystem.newWatchService();
         Paths.get("C:/").register(watchService,
                 StandardWatchEventKinds.ENTRY_CREATE,
                 StandardWatchEventKinds.ENTRY_DELETE,

@@ -20,28 +20,12 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- 设置静态资源 -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
     <!-- 设置 path "/" 映射  作用是把首页/映射为/guest/index -->
     <mvc:view-controller path="/" view-name="forward:index"/>
-
-    <!-- 登录请求拦截器 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/user/**"/>
-            <bean class="com.accelerator.demo.ssm.web.interceptor.AuthenticationInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
 
     <!-- JSP视图解析 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp"/>
-
-    <!-- 上传视图解析 -->
-    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-          p:defaultEncoding="UTF-8"
-          p:maxInMemorySize="40960"
-          p:maxUploadSize="104857600"/> <!-- maxUploadSize 文件上传的最大值以byte为单位 -->
 
 </beans>

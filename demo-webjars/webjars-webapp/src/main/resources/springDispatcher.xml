@@ -15,6 +15,10 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
+    <mvc:view-controller path="/" view-name="index"/>
+    <mvc:resources mapping="/resources/**" location="classpath:/META-INF/resources/webjars/"/>
+
     <!-- JSP视图解析 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
