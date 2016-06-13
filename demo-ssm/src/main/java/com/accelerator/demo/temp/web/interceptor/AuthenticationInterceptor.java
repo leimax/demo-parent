@@ -1,4 +1,4 @@
-package com.accelerator.demo.ssm.web.interceptor;
+package com.accelerator.demo.temp.web.interceptor;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

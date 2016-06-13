@@ -1,4 +1,4 @@
-package com.accelerator.demo.ssm.model.po;
+package com.accelerator.demo.temp.model.po;
 
 public class User {
     private Long userId;

@@ -1,8 +1,8 @@
-package com.accelerator.demo.ssm.dao.mapper;
+package com.accelerator.demo.temp.dao.mapper;
 
 import java.util.List;
 
-import com.accelerator.demo.ssm.model.po.User;
+import com.accelerator.demo.temp.model.po.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Long userId);

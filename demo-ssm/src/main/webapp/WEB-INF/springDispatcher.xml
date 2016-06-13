@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.accelerator.demo.ssm.web.controller"/>
+    <context:component-scan base-package="com.accelerator.demo.temp.web.controller"/>
 
     <!-- 开启mvc注解 -->
     <mvc:annotation-driven>
@@ -29,7 +29,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
-            <bean class="com.accelerator.demo.ssm.web.interceptor.AuthenticationInterceptor"/>
+            <bean class="com.accelerator.demo.temp.web.interceptor.AuthenticationInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
