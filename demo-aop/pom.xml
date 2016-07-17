@@ -1,27 +1,33 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <artifactId>demo-parent</artifactId>
         <groupId>com.accelerator.demo</groupId>
-        <artifactId>demo-spring-remote</artifactId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-remote-client</artifactId>
+    <artifactId>demo-aop</artifactId>
     <dependencies>
         <!-- project library -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>spring-remote-api</artifactId>
+            <artifactId>demo-common</artifactId>
         </dependency>
-
         <!-- spring frameworks -->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <!-- Aspect Oriented -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
     </dependencies>
 </project>
