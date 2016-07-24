@@ -28,17 +28,24 @@ public class AopDemoAspect {
     }
 
     @Around(value = "pointcut()")
-    public void around(ProceedingJoinPoint point) throws Throwable {
+    public Object around(ProceedingJoinPoint point) throws Throwable {
         logger.info("Aspect Around 调用开始！");
         Object result = point.proceed();
         logger.info("Around调用返回值：{}", result);
         logger.info("Aspect Around 调用结束！");
+        return result;
     }
 
-    @AfterReturning(value = "pointcut()", returning = "returnObj")
-    public void afterReturning(JoinPoint point, String returnObj) {
+    @AfterReturning(value = "pointcut()", returning = "retVal")
+    public void afterReturning(JoinPoint point, Object retVal) {
         logger.info("AfterReturning 被调用！");
-        logger.info("AfterReturning调用返回值：{}", returnObj);
+        // 如果Around方法返回值为空、那么这里的返回值也是空
+        logger.info("AfterReturning调用返回值：{}", retVal);
+    }
+
+    @AfterThrowing(pointcut = "pointcut()", throwing = "e")
+    public void afterThrowing(JoinPoint point, Exception e) {
+        logger.info("AfterThrowing调用异常信息：{}", e.getMessage());
     }
 
 }
