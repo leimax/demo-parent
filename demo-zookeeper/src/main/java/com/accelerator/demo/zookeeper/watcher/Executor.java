@@ -15,17 +15,15 @@ public class Executor implements Watcher, Runnable, DataMonitor.DataMonitorListe
 
     DataMonitor dm;
 
-    ZooKeeper zk;
-
-    public Executor(String hostPort, String znode) throws KeeperException, IOException {
-        zk = new ZooKeeper(hostPort, 3000, this);
-        dm = new DataMonitor(zk, znode, this);
+    public Executor(String hostPort, String zNode) throws KeeperException, IOException {
+        ZooKeeper zk = new ZooKeeper(hostPort, 3000, this);
+        dm = new DataMonitor(zk, zNode, this);
     }
 
     public static void main(String[] args) {
-        String znode = "/test";
+        String zNode = "/test";
         try {
-            new Executor(Constants.ZK_HOSTS, znode).run();
+            new Executor(Constants.ZK_HOSTS, zNode).run();
         } catch (Exception e) {
             e.printStackTrace();
         }

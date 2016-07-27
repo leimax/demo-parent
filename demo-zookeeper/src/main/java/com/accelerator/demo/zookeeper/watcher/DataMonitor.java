@@ -12,86 +12,87 @@ import java.util.Arrays;
 
 public class DataMonitor implements Watcher, StatCallback {
 
-	ZooKeeper zk;
+    public interface DataMonitorListener {
 
-	String znode;
+        void exists(byte data[]);
 
-	boolean dead;
+        void closing(int rc);
+    }
 
-	DataMonitorListener listener;
+    ZooKeeper zk;
 
-	byte prevData[];
+    String zNode;
 
-	public DataMonitor(ZooKeeper zk, String znode, DataMonitorListener listener) {
-		this.zk = zk;
-		this.znode = znode;
-		this.listener = listener;
-		// 通过检查节点是否存在获取完整的事件驱动
-		zk.exists(znode, true, this, null);
-	}
+    boolean dead;
 
-	public interface DataMonitorListener {
-		void exists(byte data[]);
+    DataMonitorListener listener;
 
-		void closing(int rc);
-	}
+    byte prevData[];
 
-	@Override
-	public void process(WatchedEvent event) {
-		String path = event.getPath();
-		if (event.getType() == Event.EventType.None) {
-			// 当连接改变告知当前状态
-			switch (event.getState()) {
-			case SyncConnected:
-				break;
-			case Expired:
-				dead = true;
-				listener.closing(Code.SESSIONEXPIRED.intValue());
-				break;
-			default:
-				break;
-			}
-		} else {
-			if (path != null && path.equals(znode)) {
-				// 当一些节点改变时、找出它
-				zk.exists(znode, true, this, null);
-			}
-		}
-	}
+    public DataMonitor(ZooKeeper zk, String zNode, DataMonitorListener listener) {
+        this.zk = zk;
+        this.zNode = zNode;
+        this.listener = listener;
+        // 通过检查节点是否存在获取完整的事件驱动
+        zk.exists(zNode, true, this, null);
+    }
 
-	public void processResult(int rc, String path, Object ctx, Stat stat) {
-		boolean exists;
-		switch (Code.get(rc)) {
-		case OK:
-			exists = true;
-			break;
-		case NONODE:
-			exists = false;
-			break;
-		case SESSIONEXPIRED:
-		case NOAUTH:
-			dead = true;
-			listener.closing(rc);
-			return;
-		default:
-			// 重试异常
-			zk.exists(znode, true, this, null);
-			return;
-		}
-		byte b[] = null;
-		if (exists) {
-			try {
-				b = zk.getData(znode, false, null);
-			} catch (KeeperException e) {
-				// 不需要重新获取、打印异常
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				return;
-			}
-		}
-		if ((b == null && b != prevData) || (b != null && !Arrays.equals(prevData, b))) {
-			listener.exists(b);
-			prevData = b;
-		}
-	}
+    @Override
+    public void process(WatchedEvent event) {
+        String path = event.getPath();
+        if (event.getType() == Event.EventType.None) {
+            // 当连接改变告知当前状态
+            switch (event.getState()) {
+                case SyncConnected:
+                    break;
+                case Expired:
+                    dead = true;
+                    listener.closing(Code.SESSIONEXPIRED.intValue());
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            if (path != null && path.equals(zNode)) {
+                // 当一些节点改变时、找出它
+                zk.exists(zNode, true, this, null);
+            }
+        }
+    }
+
+    public void processResult(int rc, String path, Object ctx, Stat stat) {
+        boolean exists;
+        switch (Code.get(rc)) {
+            case OK:
+                exists = true;
+                break;
+            case NONODE:
+                exists = false;
+                break;
+            case SESSIONEXPIRED:
+            case NOAUTH:
+                dead = true;
+                listener.closing(rc);
+                return;
+            default:
+                // 重试异常
+                zk.exists(zNode, true, this, null);
+                return;
+        }
+        byte b[] = null;
+        if (exists) {
+            try {
+                b = zk.getData(zNode, false, null);
+            } catch (KeeperException e) {
+                // 不需要重新获取、打印异常
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                return;
+            }
+        }
+        if ((b == null && b != prevData) || (b != null && !Arrays.equals(prevData, b))) {
+            listener.exists(b);
+            prevData = b;
+        }
+    }
 }

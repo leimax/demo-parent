@@ -38,6 +38,7 @@
         <javax.el.impl.version>2.2.6</javax.el.impl.version>
         <jstl.version>1.2</jstl.version>
         <junit.version>4.12</junit.version>
+        <mockito.version>1.10.19</mockito.version>
 
         <!-- Plugin Versions -->
         <compiler.version>3.3</compiler.version>
@@ -96,7 +97,7 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            <!-- slf4j to log4j bridge -->
+            <!-- log4j to slf4j bridge -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
@@ -110,7 +111,7 @@
                 <version>${slf4j.version}</version>
                 <scope>runtime</scope>
             </dependency>
-            <!-- slf4j to commons-logging bridge -->
+            <!-- commons-logging to slf4j bridge -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
@@ -192,7 +193,7 @@
                 <version>${aspectj.version}</version>
             </dependency>
 
-            <!-- spring frameworks -->
+            <!-- Spring Frameworks -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
@@ -240,7 +241,7 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- validator framework  -->
+            <!-- Validator Framework  -->
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
@@ -259,7 +260,7 @@
                 <version>${velocity.version}</version>
             </dependency>
 
-            <!-- zookeeper library -->
+            <!-- Zookeeper Library -->
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
@@ -350,6 +351,14 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+
+            <!-- Mocking Library -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -434,5 +443,6 @@
         <module>demo-temp</module>
         <module>demo-aop</module>
         <module>demo-netty</module>
+        <module>demo-mockito</module>
     </modules>
 </project>
