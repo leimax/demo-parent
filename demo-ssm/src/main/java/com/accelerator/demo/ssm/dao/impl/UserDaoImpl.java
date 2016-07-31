@@ -1,10 +1,10 @@
-package com.accelerator.demo.temp.dao.impl;
+package com.accelerator.demo.ssm.dao.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.accelerator.demo.temp.dao.UserDao;
-import com.accelerator.demo.temp.dao.mapper.UserMapper;
-import com.accelerator.demo.temp.model.po.User;
+import com.accelerator.demo.ssm.dao.UserDao;
+import com.accelerator.demo.ssm.dao.mapper.UserMapper;
+import com.accelerator.demo.ssm.model.po.User;
 
 import javax.annotation.Resource;
 import java.util.List;

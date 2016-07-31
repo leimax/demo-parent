@@ -1,4 +1,4 @@
-package com.accelerator.demo.temp.web.controller;
+package com.accelerator.demo.ssm.web.controller;
 
 import com.google.common.collect.Maps;
 import org.springframework.stereotype.Controller;

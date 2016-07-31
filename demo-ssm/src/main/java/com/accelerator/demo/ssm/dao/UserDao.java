@@ -1,9 +1,9 @@
-package com.accelerator.demo.temp.dao;
+package com.accelerator.demo.ssm.dao;
 
 
 import java.util.List;
 
-import com.accelerator.demo.temp.model.po.User;
+import com.accelerator.demo.ssm.model.po.User;
 
 public interface UserDao {
 

@@ -1,10 +1,10 @@
-package com.accelerator.demo.temp.service.impl;
+package com.accelerator.demo.ssm.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.accelerator.demo.temp.dao.UserDao;
-import com.accelerator.demo.temp.model.po.User;
-import com.accelerator.demo.temp.service.UserService;
+import com.accelerator.demo.ssm.dao.UserDao;
+import com.accelerator.demo.ssm.model.po.User;
+import com.accelerator.demo.ssm.service.UserService;
 
 import javax.annotation.Resource;
 import java.util.List;
