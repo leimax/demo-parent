@@ -24,7 +24,7 @@
         <velocity.version>1.7</velocity.version>
         <freemarker.version>2.3.23</freemarker.version>
         <zookeeper.version>3.4.8</zookeeper.version>
-        <mysql.version>6.0.2</mysql.version>
+        <mysql.version>5.1.39</mysql.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <commons.dbcp2.version>2.1.1</commons.dbcp2.version>
         <mybatis.version>3.3.1</mybatis.version>
@@ -44,7 +44,7 @@
         <compiler.version>3.3</compiler.version>
         <surefire.version>2.19</surefire.version>
         <war.version>2.6</war.version>
-        <mybatis.generator>1.3.2</mybatis.generator>
+        <mybatis.generator.version>1.3.2</mybatis.generator.version>
 
         <!-- Project configuration -->
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
@@ -384,7 +384,7 @@
                 <plugin>
                     <groupId>org.mybatis.generator</groupId>
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
-                    <version>${mybatis.generator}</version>
+                    <version>${mybatis.generator.version}</version>
                     <configuration>
                         <configurationFile>
                             src/main/resources/mybatis/generator/generatorConfig.xml
@@ -392,6 +392,13 @@
                         <overwrite>true</overwrite>
                         <verbose>true</verbose>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>${mysql.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>

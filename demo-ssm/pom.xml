@@ -32,6 +32,16 @@
             <artifactId>spring-test</artifactId>
         </dependency>
 
+        <!-- Object/Relational Mapping -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+
         <!-- JDBC Support -->
         <dependency>
             <groupId>org.apache.commons</groupId>
