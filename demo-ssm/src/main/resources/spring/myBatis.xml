@@ -38,7 +38,7 @@
     </tx:advice>
     <!-- aop配置 -->
     <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.accelerator.demo.ssm.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.accelerator.demo.temp.service.impl.*.*(..))"/>
     </aop:config>
     <!-- MyBatis初始化结束 -->
 

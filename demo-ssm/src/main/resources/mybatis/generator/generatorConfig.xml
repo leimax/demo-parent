@@ -40,7 +40,7 @@
             <property name="forceBigDecimals" value="true"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.accelerator.demo.ssm.model.po" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.accelerator.demo.temp.model.po" targetProject="src/main/java">
             <!-- 是否对model添加 构造函数 -->
             <!--<property name="constructorBased" value="true"/>-->
             <!-- 是否允许子包，即targetPackage.schemaName.tableName 让schema作为包的后缀 -->
@@ -65,7 +65,7 @@
         type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
         type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="com.accelerator.demo.ssm.dao.mapper" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.accelerator.demo.temp.dao.mapper" targetProject="src/main/java"
                              type="XMLMAPPER">
             <!-- 是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>

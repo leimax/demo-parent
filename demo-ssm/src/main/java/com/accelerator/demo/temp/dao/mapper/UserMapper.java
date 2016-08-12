@@ -1,6 +1,6 @@
-package com.accelerator.demo.ssm.dao.mapper;
+package com.accelerator.demo.temp.dao.mapper;
 
-import com.accelerator.demo.ssm.model.po.User;
+import com.accelerator.demo.temp.model.po.User;
 
 import java.util.List;
 
