@@ -1,3 +1,5 @@
+package com.accelerator.demo.mina;
+
 import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.service.IoHandler;
 import org.apache.mina.core.session.IdleStatus;
@@ -31,7 +33,7 @@ class TimeServerHandler implements IoHandler {
 
     @Override
     public void exceptionCaught(IoSession arg0, Throwable arg1) throws Exception {
-        System.out.println("TimeServerHandler.exceptionCaught()");
+        System.out.println("com.accelerator.demo.mina.TimeServerHandler.exceptionCaught()");
 
     }
 
@@ -45,22 +47,22 @@ class TimeServerHandler implements IoHandler {
 
     @Override
     public void messageSent(IoSession arg0, Object arg1) throws Exception {
-        System.out.println("TimeServerHandler.messageSent()");
+        System.out.println("com.accelerator.demo.mina.TimeServerHandler.messageSent()");
     }
 
     @Override
     public void inputClosed(IoSession session) throws Exception {
-        System.out.println("TimeServerHandler.inputClosed()");
+        System.out.println("com.accelerator.demo.mina.TimeServerHandler.inputClosed()");
     }
 
     @Override
     public void sessionClosed(IoSession arg0) throws Exception {
-        System.out.println("TimeServerHandler.sessionClosed()");
+        System.out.println("com.accelerator.demo.mina.TimeServerHandler.sessionClosed()");
     }
 
     @Override
     public void sessionCreated(IoSession session) throws Exception {
-        System.out.println("TimeServerHandler.sessionCreated()");
+        System.out.println("com.accelerator.demo.mina.TimeServerHandler.sessionCreated()");
 
     }
 
@@ -71,7 +73,7 @@ class TimeServerHandler implements IoHandler {
 
     @Override
     public void sessionOpened(IoSession arg0) throws Exception {
-        System.out.println("TimeServerHandler.sessionOpened()");
+        System.out.println("com.accelerator.demo.mina.TimeServerHandler.sessionOpened()");
 
     }
 
