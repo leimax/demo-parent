@@ -3,7 +3,7 @@
         "mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--导入属性配置 -->
-    <properties resource="mybatis/generator/generator.properties"/>
+    <properties resource="jdbc.properties"/>
 
     <!--指定特定数据库的jdbc驱动jar包的位置 -->
     <!--
@@ -30,10 +30,10 @@
         </commentGenerator>
 
         <!--jdbc的数据库连接 -->
-        <jdbcConnection driverClass="${jdbcConnection.driverClass}"
-                        connectionURL="${jdbcConnection.connectionURL}"
-                        userId="${jdbcConnection.userId}"
-                        password="${jdbcConnection.password}"/>
+        <jdbcConnection driverClass="${jdbc.driverClassName}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}"/>
 
         <javaTypeResolver>
             <!-- 是否使用bigDecimal，这里用true，false可自动转化以下类型（Long, Integer, Short, etc.） -->
@@ -72,7 +72,7 @@
         </javaClientGenerator>
 
         <!-- 反向生成的表名 -->
-        <table tableName="user"
+        <table tableName="user_"
                domainObjectName="User"
                enableUpdateByExample="false"
                enableCountByExample="false"
