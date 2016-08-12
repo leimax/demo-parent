@@ -1,10 +1,9 @@
 package com.accelerator.demo.temp.service.impl;
 
-import org.springframework.stereotype.Service;
-
-import com.accelerator.demo.temp.dao.UserDao;
+import com.accelerator.demo.temp.dao.UserMapper;
 import com.accelerator.demo.temp.model.po.User;
 import com.accelerator.demo.temp.service.UserService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,27 +12,27 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Resource
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Override
     public boolean add(User user) {
-        int rows = userDao.save(user);
+        int rows = userMapper.insert(user);
         return rows > 0;
     }
 
     @Override
     public User get(Integer id) {
-        return userDao.find(id);
+        return userMapper.selectByPrimaryKey(id.longValue());
     }
 
     @Override
     public List<User> getAll() {
-        return userDao.findAll();
+        return userMapper.selectAll();
     }
 
     @Override
     public boolean remove(Integer id) {
-        int rows = userDao.delete(id);
+        int rows = userMapper.deleteByPrimaryKey(id.longValue());
         return rows > 0;
     }
 

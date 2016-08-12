@@ -1,10 +1,11 @@
-package com.accelerator.demo.temp.dao.mapper;
+package com.accelerator.demo.temp.dao;
 
 import com.accelerator.demo.temp.model.po.User;
 
 import java.util.List;
 
 public interface UserMapper {
+
     int deleteByPrimaryKey(Long userId);
 
     int insert(User record);
