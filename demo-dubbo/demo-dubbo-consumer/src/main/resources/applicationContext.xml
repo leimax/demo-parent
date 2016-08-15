@@ -13,12 +13,17 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
-       http://code.alibabatech.com/schema/dubbo http://http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 打开bean注解支持( 常用注释有 : @Repository(数据库层注解) @Service(服务层注解) @Controller(控制层注解) @Component(通用注解) ) -->
-    <context:component-scan base-package="com.accelerator.demo.dubbo.consumer">
+    <context:component-scan base-package="com.accelerator.demo">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <dubbo:application name="dubbo-consumer"/>
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry address="zookeeper://192.168.60.80:2181" check="false"/>
+    <!-- 要引用的服务 -->
+    <dubbo:reference id="testRegistryService" interface="com.accelerator.demo.dubbo.service.TestRegistryService"/>
 
 </beans>

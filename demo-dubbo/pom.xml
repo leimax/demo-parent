@@ -16,10 +16,6 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>demo-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-        </dependency>
     </dependencies>
     <modules>
         <module>demo-dubbo-api</module>
