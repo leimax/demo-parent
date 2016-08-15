@@ -25,6 +25,8 @@
         <velocity.version>1.7</velocity.version>
         <freemarker.version>2.3.23</freemarker.version>
         <zookeeper.version>3.4.8</zookeeper.version>
+        <dubbo.version>2.5.3</dubbo.version>
+        <jedis.version>2.9.0</jedis.version>
         <mysql.version>5.1.39</mysql.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <commons.dbcp2.version>2.1.1</commons.dbcp2.version>
@@ -273,6 +275,20 @@
                 <version>${zookeeper.version}</version>
             </dependency>
 
+            <!-- Distributed Communication -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <!-- Redis Clients -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
             <!-- JDBC Support -->
             <dependency>
                 <groupId>commons-dbcp</groupId>
@@ -458,5 +474,7 @@
         <module>demo-netty</module>
         <module>demo-mockito</module>
         <module>demo-mina</module>
+        <module>demo-redis</module>
+        <module>demo-dubbo</module>
     </modules>
 </project>

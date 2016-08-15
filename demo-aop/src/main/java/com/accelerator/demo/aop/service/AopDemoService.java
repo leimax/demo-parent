@@ -13,7 +13,6 @@ public class AopDemoService {
 
     public String doSomething() {
         logger.info("doSomething()正被调用！！");
-        this.innerMethod();
         ((AopDemoService) AopContext.currentProxy()).innerMethod();
         int i = RandomUtils.nextInt(1, 10);
         if (i > 5)
