@@ -1,4 +1,4 @@
-package com.accelerator.demo.temp.dao;
+package com.accelerator.demo.temp.model.mapper;
 
 import com.accelerator.demo.temp.model.po.User;
 

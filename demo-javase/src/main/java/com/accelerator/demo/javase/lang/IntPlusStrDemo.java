@@ -1,6 +1,6 @@
-package com.accelerator.demo.javase;
+package com.accelerator.demo.javase.lang;
 
-public class IntPlusStr {
+public class IntPlusStrDemo {
 
     public static void main(String[] args) {
         int i = 1;

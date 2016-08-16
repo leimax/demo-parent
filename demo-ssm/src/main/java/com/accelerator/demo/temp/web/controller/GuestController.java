@@ -1,18 +1,18 @@
 package com.accelerator.demo.temp.web.controller;
 
+import com.accelerator.demo.temp.model.po.User;
+import com.accelerator.demo.temp.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.accelerator.demo.temp.model.po.User;
-import com.accelerator.demo.temp.service.UserService;
-
 import javax.annotation.Resource;
 import java.util.List;
 
-@Controller("guest")
+@Controller
+@RequestMapping("guest")
 public class GuestController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

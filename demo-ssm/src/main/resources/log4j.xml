@@ -23,7 +23,7 @@
         <level class="org.apache.log4j.Level" value="INFO"/>
     </logger>
     <root>
-        <level class="org.apache.log4j.Level" value="WARN"/>
+        <level class="org.apache.log4j.Level" value="INFO"/>
         <appender-ref ref="DRFILE"/>
         <appender-ref ref="CONSOLE"/>
     </root>

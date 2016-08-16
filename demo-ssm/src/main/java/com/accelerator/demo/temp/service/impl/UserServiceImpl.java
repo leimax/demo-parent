@@ -1,6 +1,6 @@
 package com.accelerator.demo.temp.service.impl;
 
-import com.accelerator.demo.temp.dao.UserMapper;
+import com.accelerator.demo.temp.model.mapper.UserMapper;
 import com.accelerator.demo.temp.model.po.User;
 import com.accelerator.demo.temp.service.UserService;
 import org.springframework.stereotype.Service;
