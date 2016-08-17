@@ -487,5 +487,6 @@
         <module>demo-mina</module>
         <module>demo-redis</module>
         <module>demo-dubbo</module>
+        <module>demo-algorithm</module>
     </modules>
 </project>
