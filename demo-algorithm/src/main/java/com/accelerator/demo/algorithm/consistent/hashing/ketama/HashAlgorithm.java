@@ -1,4 +1,4 @@
-package com.accelerator.demo.algorithm.consistent.hashing;
+package com.accelerator.demo.algorithm.consistent.hashing.ketama;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
