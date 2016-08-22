@@ -1,12 +1,13 @@
 package com.accelerator.demo.dubbo.annotation.action;
 
 import com.accelerator.demo.dubbo.annotation.api.AnnotationService;
+import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;
 
 @Component("annotationAction")
 public class AnnotationAction {
 
-    // @Reference
+    @Reference
     private AnnotationService annotationService;
 
     public String doSayHello(String name) {
