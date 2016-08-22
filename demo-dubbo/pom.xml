@@ -9,17 +9,44 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>demo-dubbo</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <dependencies>
         <!-- project library -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>demo-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+        <!-- Distributed Communication -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <!-- Aspect Oriented -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
     </dependencies>
-    <modules>
-        <module>demo-dubbo-api</module>
-        <module>demo-dubbo-producer</module>
-        <module>demo-dubbo-consumer</module>
-    </modules>
 </project>

@@ -21,7 +21,7 @@ public class GuestController {
     private UserService userService;
 
     @RequestMapping("index")
-    public void index() throws Exception {
+    public void index() {
         logger.info("GuestController.index method");
     }
 

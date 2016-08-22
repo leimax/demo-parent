@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
 
 public class DistributedClient {
     // 超时时间
-    private static final int SESSION_TIMEOUT = 5000;
+    private static final int SESSION_TIMEOUT = 500000;
     // zookeeper server列表
     private String hosts = "192.168.60.80:2181";
     private String groupNode = "locks";
@@ -40,7 +40,24 @@ public class DistributedClient {
                     }
                     // 发生了waitPath的删除事件
                     if (event.getType() == Event.EventType.NodeDeleted && event.getPath().equals(waitPath)) {
-                        doSomething();
+                        // 确认thisPath是否真的是列表中的最小节点
+                        List<String> childrenNodes = zk.getChildren("/" + groupNode, false);
+                        String thisNode = thisPath.substring(("/" + groupNode + "/").length());
+                        // 排序
+                        Collections.sort(childrenNodes);
+                        int index = childrenNodes.indexOf(thisNode);
+                        if (index == 0) {
+                            // 确实是最小节点
+                            doSomething();
+                        } else {
+                            // 说明waitPath是由于出现异常而挂掉的
+                            // 更新waitPath
+                            waitPath = "/" + groupNode + "/" + childrenNodes.get(index - 1);
+                            // 重新注册监听, 并判断此时waitPath是否已删除
+                            if (zk.exists(waitPath, true) == null) {
+                                doSomething();
+                            }
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -51,6 +68,9 @@ public class DistributedClient {
         // 等待连接建立
         latch.await();
 
+        if (zk.exists("/" + groupNode, false) == null) {
+            zk.create("/" + groupNode, null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        }
         // 创建子节点
         thisPath = zk.create("/" + groupNode + "/" + subNode, null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
 
@@ -97,7 +117,7 @@ public class DistributedClient {
 
     public static void main(String[] args) throws Exception {
         for (int i = 0; i < 10; i++) {
-            new Thread() {
+            Thread thread = new Thread() {
                 public void run() {
                     try {
                         DistributedClient dl = new DistributedClient();
@@ -106,7 +126,9 @@ public class DistributedClient {
                         e.printStackTrace();
                     }
                 }
-            }.start();
+            };
+            Thread.sleep(1000);
+            thread.start();
         }
         Thread.sleep(Long.MAX_VALUE);
     }

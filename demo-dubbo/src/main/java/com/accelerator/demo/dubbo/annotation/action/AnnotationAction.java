@@ -1,0 +1,19 @@
+package com.accelerator.demo.dubbo.annotation.action;
+
+import com.accelerator.demo.dubbo.annotation.api.AnnotationService;
+import org.springframework.stereotype.Component;
+
+@Component("annotationAction")
+public class AnnotationAction {
+
+    // @Reference
+    private AnnotationService annotationService;
+
+    public String doSayHello(String name) {
+        return annotationService.sayHello(name);
+    }
+
+    public void setAnnotationService(AnnotationService annotationService) {
+        this.annotationService = annotationService;
+    }
+}
