@@ -12,10 +12,10 @@ import org.apache.zookeeper.ZooKeeper;
 import java.io.IOException;
 import java.util.List;
 
-public class MainTest implements Watcher {
+public class NodeCreateDemo implements Watcher {
 
     public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
-        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, 3000, new MainTest());
+        ZooKeeper zk = new ZooKeeper(Constants.ZK_HOSTS, 3000, new NodeCreateDemo());
         System.out.println("=========创建节点===========");
         if (zk.exists("/app", false) == null) {
             zk.create("/app", "app".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);

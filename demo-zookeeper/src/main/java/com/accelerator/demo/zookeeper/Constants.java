@@ -5,5 +5,5 @@ package com.accelerator.demo.zookeeper;
  */
 public interface Constants {
     // 测试用ZK HOSTS
-    String ZK_HOSTS = "192.168.60.80:2181";
+    String ZK_HOSTS = "zookeeper.accelerator.com:2181";
 }

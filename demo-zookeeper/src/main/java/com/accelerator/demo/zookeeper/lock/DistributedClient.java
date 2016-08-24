@@ -15,7 +15,7 @@ public class DistributedClient {
     // 超时时间
     private static final int SESSION_TIMEOUT = 500000;
     // zookeeper server列表
-    private String hosts = "192.168.60.80:2181";
+    private String hosts = "zookeeper.accelerator.com:2181";
     private String groupNode = "locks";
     private String subNode = "sub";
 
