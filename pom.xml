@@ -144,25 +144,25 @@
             <!-- logger dependency support end -->
 
             <!-- apache commons util start -->
-            <!-- commons lang3 -->
+            <!-- Commons Lang3 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang.version}</version>
             </dependency>
-            <!-- commons collections -->
+            <!-- Commons Collections -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
                 <version>${commons.collections.version}</version>
             </dependency>
-            <!-- commons io -->
+            <!-- Commons IO -->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons.io.version}</version>
             </dependency>
-            <!-- commons codec -->
+            <!-- Commons Codec -->
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
@@ -176,14 +176,14 @@
             </dependency>
             <!-- apache commons util end -->
 
-            <!-- google guava -->
+            <!-- Google Guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
 
-            <!-- json library -->
+            <!-- Json Library -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
@@ -202,7 +202,7 @@
                 <version>${mina.version}</version>
             </dependency>
 
-            <!-- http support -->
+            <!-- Http Support -->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
@@ -403,7 +403,7 @@
                 <scope>provided</scope>
             </dependency>
 
-            <!-- junit test -->
+            <!-- Junit Test -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
