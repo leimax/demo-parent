@@ -27,8 +27,6 @@
             </interceptor-stack>
         </interceptors>
 
-        <default-action-ref name="test"/>
-
         <action name="test" class="testAction" method="test">
             <interceptor-ref name="testStack"/>
             <result>test.jsp</result>

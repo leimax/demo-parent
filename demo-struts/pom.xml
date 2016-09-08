@@ -47,18 +47,6 @@
             <artifactId>struts2-spring-plugin</artifactId>
         </dependency>
 
-        <!-- Json library -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-
-        <!-- Aspect Oriented -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-        </dependency>
-
         <!-- Java Specifications -->
         <dependency>
             <groupId>javax.servlet</groupId>
