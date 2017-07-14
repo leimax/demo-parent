@@ -1,4 +1,4 @@
-package com.accelerator.demo.amqp.producer;
+package com.accelerator.demo.spring.rabbit.producer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

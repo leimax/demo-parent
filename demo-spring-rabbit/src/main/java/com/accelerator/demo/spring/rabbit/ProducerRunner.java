@@ -1,4 +1,4 @@
-package com.accelerator.demo.amqp;
+package com.accelerator.demo.spring.rabbit;
 
 public class ProducerRunner {
 
