@@ -38,7 +38,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
-            <bean class="com.accelerator.demo.temp.web.interceptor.AuthenticationInterceptor"/>
+            <bean class="com.accelerator.demo.ssm.web.interceptor.AuthenticationInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 

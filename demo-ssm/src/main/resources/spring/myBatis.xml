@@ -16,12 +16,12 @@
     <!-- MyBatis初始化开始 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="com.accelerator.demo.temp.model.po"/>
-        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/>
+        <property name="typeAliasesPackage" value="com.accelerator.demo.ssm.model.po"/>
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml"/>
     </bean>
     <!-- 自动注册接口Bean -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.accelerator.demo.temp.model.mapper"/>
+        <property name="basePackage" value="com.accelerator.demo.ssm.model.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     <!-- 事务管理 -->

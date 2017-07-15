@@ -1,9 +1,9 @@
-package com.accelerator.demo.temp.service;
+package com.accelerator.demo.ssm.service;
 
+
+import com.accelerator.demo.ssm.model.po.User;
 
 import java.util.List;
-
-import com.accelerator.demo.temp.model.po.User;
 
 public interface UserService {
 

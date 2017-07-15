@@ -1,8 +1,8 @@
-package com.accelerator.demo.temp.service.impl;
+package com.accelerator.demo.ssm.service.impl;
 
-import com.accelerator.demo.temp.model.mapper.UserMapper;
-import com.accelerator.demo.temp.model.po.User;
-import com.accelerator.demo.temp.service.UserService;
+import com.accelerator.demo.ssm.model.mapper.UserMapper;
+import com.accelerator.demo.ssm.model.po.User;
+import com.accelerator.demo.ssm.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -35,6 +35,5 @@ public class UserServiceImpl implements UserService {
         int rows = userMapper.deleteByPrimaryKey(id.longValue());
         return rows > 0;
     }
-
 
 }
