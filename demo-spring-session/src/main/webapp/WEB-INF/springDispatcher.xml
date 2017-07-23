@@ -21,22 +21,21 @@
 
     <!-- 开启mvc注解 -->
     <mvc:annotation-driven>
-        <!-- 自定义json格式 -->
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <mvc:message-converters>  <!-- 自定义消息转换格式 -->
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> <!-- Json格式转换 -->
                 <property name="objectMapper" ref="objectMapper"/>
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- 设置静态资源 -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <!-- 设置 path "/" 映射  作用是把首页/映射为/guest/index -->
-    <mvc:view-controller path="/" view-name="forward:index.html"/>
+    <!-- 设置静态资源目录 -->
+    <mvc:resources location="/resources/" mapping="/resources/**"/>
 
-    <!-- JSP视图解析 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:prefix="/WEB-INF/jsp/"
-          p:suffix=".jsp"/>
+    <!-- 设置 path "/" 映射  作用是把首页/映射为index -->
+    <mvc:view-controller path="/" view-name="forward:index"/>
+
+    <mvc:view-resolvers> <!-- 视图解析 -->
+        <mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp"/> <!-- JSP视图解析 -->
+    </mvc:view-resolvers>
 
 </beans>

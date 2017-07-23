@@ -1,13 +1,4 @@
-<%@ page import="org.apache.commons.lang3.StringUtils" %>
-<%@ page import="java.util.UUID" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%!private static final String SESSION_KEY = "DEMO";%>
-<%
-    String sessionValue = (String) session.getAttribute(SESSION_KEY);
-    if (StringUtils.isEmpty(sessionValue)) {
-        session.setAttribute(SESSION_KEY, UUID.randomUUID());
-    }
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +7,7 @@
 </head>
 <body>
 <h1 style="color:red">
-    显示当前用户：<%=session.getAttribute(SESSION_KEY)%>
+    显示当前用户：${attrs[0].nickname}
 </h1>
 </body>
 </html>

@@ -29,5 +29,9 @@
 
     <bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
           p:hostName="redis" p:port="6379"/>
+    <!-- 配置spring-session -->
+    <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
+        <property name="maxInactiveIntervalInSeconds" value="6000"/>   <!-- 过期时间100分钟 -->
+    </bean>
 
 </beans>
