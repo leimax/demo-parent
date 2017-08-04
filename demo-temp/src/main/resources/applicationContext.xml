@@ -18,18 +18,7 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-    <!-- Jackson Json 工具 -->
-    <bean id="objectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean"
-          p:simpleDateFormat="yyyy-MM-dd HH:mm:ss"
-          p:indentOutput="true">
-        <property name="serializationInclusion">
-            <util:constant static-field="com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY"/>
-        </property>
-    </bean>
-
-    <context:property-placeholder file-encoding="ISO-8859-1"
-                                  location="classpath:jdbc.properties"
-                                  ignore-unresolvable="true"/>
+    <context:property-placeholder file-encoding="UTF-8" location="classpath:jdbc.properties"/>
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <!-- 连接数据库URL -->
         <property name="url" value="${jdbc.url}"/>

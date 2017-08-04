@@ -20,7 +20,7 @@
         如果表有主键,那么该模型会产生一个单独的主键实体类,如果表还有BLOB字段，则会为表生成一个包含所有BLOB字段的单独的实体类,
         然后为所有其他的字段生成一个单独的实体类。MBG会在所有生成的实体类之间维护一个继承关系。显然这个模型比较复杂。
     -->
-    <context id="deppon-pressure-generator" defaultModelType="flat" targetRuntime="MyBatis3">
+    <context id="mybatis-generator" defaultModelType="flat" targetRuntime="MyBatis3">
 
         <commentGenerator>
             <!-- 是否取消生成注释代时间戳 -->
@@ -65,7 +65,7 @@
         type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
         type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="com.accelerator.demo.ssm.dao" targetProject="src/main/resources"
+        <javaClientGenerator targetPackage="com.accelerator.demo.ssm.model.mapper" targetProject="src/main/resources"
                              type="XMLMAPPER">
             <!-- 是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
