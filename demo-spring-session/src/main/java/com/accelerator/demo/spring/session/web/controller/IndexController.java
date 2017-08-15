@@ -18,7 +18,7 @@ public class IndexController {
 
     @RequestMapping
     public void index(HttpSession session) {
-        logger.info("com.accelerator.demo.spring.session.web.controller.IndexController.index(javax.servlet.http.HttpSession session) 开始");
+        logger.info("IndexController.index(HttpSession session) =============开始==============");
         List<Map<String, String>> sessionValue = (List<Map<String, String>>) session.getAttribute("attrs");
         if (sessionValue == null) {
             List<Map<String, String>> attrs = Lists.newArrayList();
@@ -30,7 +30,7 @@ public class IndexController {
             }
             session.setAttribute("attrs", attrs);
         }
-        logger.info("com.accelerator.demo.spring.session.web.controller.IndexController.index(javax.servlet.http.HttpSession session) 结束");
+        logger.info("IndexController.index(HttpSession session) =============结束==============");
     }
 
 }
