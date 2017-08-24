@@ -15,6 +15,6 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<dubbo:registry address="zookeeper://zookeeper.accelerator.com:2181"/>
+	<dubbo:registry address="zookeeper://zookeeper:2181"/>
 
 </beans>
