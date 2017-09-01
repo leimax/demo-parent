@@ -1,7 +1,6 @@
 package com.accelerator.demo.zookeeper.lock;
 
 import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
@@ -15,7 +14,7 @@ public class DistributedClient {
     // 超时时间
     private static final int SESSION_TIMEOUT = 500000;
     // zookeeper server列表
-    private String hosts = "zookeeper.accelerator.com:2181";
+    private String hosts = "zookeeper:2181";
     private String groupNode = "locks";
     private String subNode = "sub";
 
@@ -31,37 +30,35 @@ public class DistributedClient {
      * 连接zookeeper
      */
     public void connectZookeeper() throws Exception {
-        zk = new ZooKeeper(hosts, SESSION_TIMEOUT, new Watcher() {
-            public void process(WatchedEvent event) {
-                try {
-                    // 连接建立时, 打开latch, 唤醒wait在该latch上的线程
-                    if (event.getState() == Event.KeeperState.SyncConnected) {
-                        latch.countDown();
-                    }
-                    // 发生了waitPath的删除事件
-                    if (event.getType() == Event.EventType.NodeDeleted && event.getPath().equals(waitPath)) {
-                        // 确认thisPath是否真的是列表中的最小节点
-                        List<String> childrenNodes = zk.getChildren("/" + groupNode, false);
-                        String thisNode = thisPath.substring(("/" + groupNode + "/").length());
-                        // 排序
-                        Collections.sort(childrenNodes);
-                        int index = childrenNodes.indexOf(thisNode);
-                        if (index == 0) {
-                            // 确实是最小节点
+        zk = new ZooKeeper(hosts, SESSION_TIMEOUT, event -> {
+            try {
+                // 连接建立时, 打开latch, 唤醒wait在该latch上的线程
+                if (event.getState() == Watcher.Event.KeeperState.SyncConnected) {
+                    latch.countDown();
+                }
+                // 发生了waitPath的删除事件
+                if (event.getType() == Watcher.Event.EventType.NodeDeleted && event.getPath().equals(waitPath)) {
+                    // 确认thisPath是否真的是列表中的最小节点
+                    List<String> childrenNodes = zk.getChildren("/" + groupNode, false);
+                    String thisNode = thisPath.substring(("/" + groupNode + "/").length());
+                    // 排序
+                    Collections.sort(childrenNodes);
+                    int index = childrenNodes.indexOf(thisNode);
+                    if (index == 0) {
+                        // 确实是最小节点
+                        doSomething();
+                    } else {
+                        // 说明waitPath是由于出现异常而挂掉的
+                        // 更新waitPath
+                        waitPath = "/" + groupNode + "/" + childrenNodes.get(index - 1);
+                        // 重新注册监听, 并判断此时waitPath是否已删除
+                        if (zk.exists(waitPath, true) == null) {
                             doSomething();
-                        } else {
-                            // 说明waitPath是由于出现异常而挂掉的
-                            // 更新waitPath
-                            waitPath = "/" + groupNode + "/" + childrenNodes.get(index - 1);
-                            // 重新注册监听, 并判断此时waitPath是否已删除
-                            if (zk.exists(waitPath, true) == null) {
-                                doSomething();
-                            }
                         }
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
 
@@ -117,16 +114,14 @@ public class DistributedClient {
 
     public static void main(String[] args) throws Exception {
         for (int i = 0; i < 10; i++) {
-            Thread thread = new Thread() {
-                public void run() {
-                    try {
-                        DistributedClient dl = new DistributedClient();
-                        dl.connectZookeeper();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+            Thread thread = new Thread(() -> {
+                try {
+                    DistributedClient dl = new DistributedClient();
+                    dl.connectZookeeper();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            };
+            });
             Thread.sleep(1000);
             thread.start();
         }
